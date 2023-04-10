@@ -1,5 +1,9 @@
 # Unsplash application
 
+## Requirements
+
+- Node 16.x
+
 ## Getting started
 
 1. Clone the project `git clone https://github.com/itsjeffro/unsplash.git`.
