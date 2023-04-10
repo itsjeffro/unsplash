@@ -34,7 +34,8 @@ function App() {
 
     axios
       .get(`/search?page=${1}&query=${debouncedText}`)
-      .then((response) => setData({ isLoading: false, images: response.data.results }));
+      .then((response) => setData({ isLoading: false, images: response.data.results }))
+      .catch((error) => alert(error?.response?.data?.message));
   }, [debouncedText]);
 
   const handleSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
