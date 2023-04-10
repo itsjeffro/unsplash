@@ -1,5 +1,11 @@
 # Unsplash application
 
+A little demo application that uses the Unsplash API.
+
+<p align="center">
+    <img src="https://res.cloudinary.com/dz4tjswiv/image/upload/v1681136895/unsplash.jpg">
+</p>
+
 ## Requirements
 
 - Node 16.x
