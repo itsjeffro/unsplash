@@ -1,8 +1,8 @@
-import { css } from "@emotion/css";
-import { ChangeEvent } from "react";
+import { css } from '@emotion/css';
+import { ChangeEvent } from 'react';
 
 type SearchInputProps = {
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
 };
 
 export const SearchInput = ({ onChange }: SearchInputProps) => {
@@ -29,4 +29,4 @@ const getSearchInputStyle = () => {
       outline: '3px solid rgba(60, 154, 232, 0.2)',
     },
   });
-}
+};

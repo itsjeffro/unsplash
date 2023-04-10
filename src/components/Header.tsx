@@ -9,7 +9,7 @@ type HeaderProps = {
 export const Header = ({ children, title }: HeaderProps) => {
   return (
     <div className={getHeaderStyle()}>
-      { title && (<h1 className={getTitleStyle()}>{title}</h1>) }
+      {title && <h1 className={getTitleStyle()}>{title}</h1>}
       {children}
     </div>
   );
@@ -29,4 +29,4 @@ const getTitleStyle = () => {
     fontSize: '1rem',
     flexShrink: 0,
   });
-}
+};

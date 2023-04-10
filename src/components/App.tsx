@@ -3,7 +3,7 @@ import { ChangeEvent, useEffect, useState } from 'react';
 import { useDebounce } from '../hooks/useDebounce';
 import { SearchInput } from './SearchInput';
 import { css } from '@emotion/css';
-import { Masonry } from "masonic";
+import { Masonry } from 'masonic';
 import { Header } from './Header';
 
 type Image = {
@@ -11,7 +11,7 @@ type Image = {
   color: string;
   urls: {
     small: string;
-  }
+  };
 };
 
 type ImageState = {
@@ -51,13 +51,7 @@ function App() {
         {!data.isLoading && data.images.length === 0 && <span>No matches found for "{debouncedText}"</span>}
 
         {!data.isLoading && (
-          <Masonry
-            columnGutter={8}
-            columnWidth={250}
-            overscanBy={5}
-            items={data.images}
-            render={MasonryCard}
-          />
+          <Masonry columnGutter={8} columnWidth={250} overscanBy={5} items={data.images} render={MasonryCard} />
         )}
       </div>
     </>
@@ -66,7 +60,7 @@ function App() {
 
 const MasonryCard = ({ data, width }: MasonryCardProps) => (
   <div className={css({ backgroundColor: data.color, width: width, borderRadius: '5px', overflow: 'hidden' })}>
-    <img className={css({display: 'block', maxWidth: '100%' })} src={data.urls.small} />
+    <img className={css({ display: 'block', maxWidth: '100%' })} src={data.urls.small} />
   </div>
 );
 
