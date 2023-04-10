@@ -1,23 +1,34 @@
 import 'dotenv/config';
-import express from 'express';
+import express, { Request, Response } from 'express';
 import ViteExpress from 'vite-express';
 import axios from 'axios';
 
 const app = express();
 
-app.get('/search', async (req, res) => {
-    const { page, query } = req.query;
+type QueryParams = {
+  page: string;
+  query: string;
+};
 
-    const response = await axios.get(
-        `https://api.unsplash.com/search/photos?page=${page || 1}&query=${query}`,
-        {
-            headers: {
-                'Authorization': `Client-ID ${process.env.UNSPLASH_ACCESS_KEY}`,
-            },
-        }
-    );
+app.get('/search', async (req: Request<{}, {}, {}, QueryParams>, res: Response) => {
+  const { page, query }  = req.query;
 
-    res.status(200).json(response.data);
+  const queryParams = new URLSearchParams({
+    per_page: '20',
+    page: page || '1',
+    query: query || null,
+  });
+
+  const response = await axios.get(
+    `https://api.unsplash.com/search/photos?${queryParams.toString()}`,
+    {
+        headers: {
+            'Authorization': `Client-ID ${process.env.UNSPLASH_ACCESS_KEY}`,
+        },
+    }
+  );
+
+  res.status(200).json(response.data);
 });
 
 ViteExpress.listen(app, 3000, () => console.log('Server is listening...'));
