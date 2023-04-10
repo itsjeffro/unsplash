@@ -11,7 +11,8 @@
     "prettier:check": "prettier --config prettierrc.json --check \"src/**/*.{ts,tsx}\"",
     "prettier:write": "prettier --config prettierrc.json --write \"src/**/*.{ts,tsx}\"",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "serve": "NODE_ENV=production nodemon --watch server.ts --exec 'ts-node --project tsconfig.node.json server.ts'"
   },
   "dependencies": {
     "@emotion/css": "^11.10.6",
